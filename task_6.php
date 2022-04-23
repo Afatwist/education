@@ -1,7 +1,6 @@
 <?php
 $userList = [
-
-	0 => [
+[
 		'avatar' => 'sunny.png',
 		'altText' => 'Sunny A.',
 		'name' => 'Sunny A.',
@@ -10,10 +9,9 @@ $userList = [
 		'twitter' => '@myplaneticket',
 		'wrapbootstrap' => 'myorange',
 		'bootstrapTitle' => 'Sunny',
-		'ban' => ''
+		'status' => 'active'
 	],
-
-	1 => [
+[
 		'avatar' => 'josh.png',
 		'altText' => 'Jos K.',
 		'name' => 'Jos K.',
@@ -22,10 +20,9 @@ $userList = [
 		'twitter' => '@atlantez',
 		'wrapbootstrap' => 'Walapa',
 		'bootstrapTitle' => 'Jos',
-		'ban' => ''
+		'status' => 'active'
 	],
-
-	2 => [
+[
 		'avatar' => 'jovanni.png',
 		'altText' => 'Jovanni Lo',
 		'name' => 'Jovanni L.',
@@ -34,10 +31,9 @@ $userList = [
 		'twitter' => '@lodev09',
 		'wrapbootstrap' => 'lodev09',
 		'bootstrapTitle' => 'Jovanni',
-		'ban' => 'banned'
+		'status' => 'banned'
 	],
-
-	3 => [
+[
 		'avatar' => 'roberto.png',
 		'altText' => 'Roberto R.',
 		'name' => 'Roberto R.',
@@ -46,7 +42,7 @@ $userList = [
 		'twitter' => '@sildur',
 		'wrapbootstrap' => 'sildur',
 		'bootstrapTitle' => 'Roberto',
-		'ban' => 'banned'
+		'status' => 'banned'
 	]
 ];
 
@@ -93,7 +89,7 @@ $userList = [
 
 							<? foreach ($userList as $user) : ?>
 
-								<div class="<?= $user['ban'] ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+								<div class="<? echo $user['status'] == 'banned' ? 'banned' : '' ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
 									<img src="img/demo/authors/<?= $user['avatar'] ?>" alt="<?= $user['altText'] ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
 									<div class="ml-2 mr-3">
 										<h5 class="m-0">

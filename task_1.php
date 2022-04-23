@@ -1,9 +1,24 @@
 <?php
 $listItem = [
-	'reports file' => 'Reports',
-	'analytics graphs' => 'Analytics',
-	'export download' => 'Export',
-	'storage' => 'Storage'
+	[
+		'title' => 'Reports',
+		'tags' => 'reports file'
+	],
+
+	[
+		'title' => 'Analytics',
+		'tags' => 'analytics graphs'
+	],
+
+	[
+		'title' => 'Export',
+		'tags' => 'export download'
+	],
+
+	[
+		'title' => 'Storage',
+		'tags' => 'storage'
+	]
 ];
 ?>
 
@@ -59,9 +74,9 @@ $listItem = [
 
 								<ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
 
-									<? foreach ($listItem as $key => $value) {
+									<? foreach ($listItem as $item) {
 										echo '<li class="list-group-item">';
-										echo '<span data-filter-tags="' . $key . '">' . $value . '</span></li>';
+										echo '<span data-filter-tags="' . $item['tags'] . '">' . $item['title'] . '</span></li>';
 									} ?>
 								</ul>
 								<div class="filter-message js-filter-message mt-0 fs-sm"></div>

@@ -1,10 +1,21 @@
 <?php
-$breadcrumbs = [
-	'/index1.php' => 'Главная',
-	'/index2.php' => 'PHP',
-	'/index3.php' => 'Функции'
+$links = [
+	[
+		'title' => 'Главная',
+		'href' => '/index1.php',
+		'is_link' => true
+	],
+	[
+		'title' => 'PHP',
+		'href' => '/index2.php',
+		'is_link' => true
+	],
+	[
+		'title' => 'Функции',
+		'href' => '/index3.php',
+		'is_link' => false
+	]
 ];
-var_dump($_SERVER);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,17 +54,14 @@ var_dump($_SERVER);
 				<div class="panel-container show">
 					<div class="panel-content">
 						<ol class="breadcrumb page-breadcrumb">
-							<? foreach ($breadcrumbs as $url => $title) {
-								$href = '"><a href="' . $url . '">' . $title . '</a>';
-								if ($url == array_key_last($breadcrumbs)) {
-									$href = ' active">' . $title;
-								}
-							/*	второй вариант
-								if ($url == $_SERVER['REQUEST_URI']) {
-									$href = ' active">' . $title;
-								} */
-								echo '<li class="breadcrumb-item' . $href . '</li>';
-							} ?>
+							<? foreach ($links as $link) : ?>
+								<? if ($link['is_link']) : ?>
+
+									<li class="breadcrumb-item"><a href="<?= $link['href'] ?>"><?= $link['title'] ?></a></li>
+								<? else : ?>
+									<li class="breadcrumb-item active"><?= $link['title'] ?></li>
+								<? endif ?>
+							<? endforeach ?>
 						</ol>
 					</div>
 				</div>

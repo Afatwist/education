@@ -1,46 +1,7 @@
 <?php
-$userList = [
-	[
-		'avatar' => 'sunny.png',
-		'altText' => 'Sunny A.',
-		'name' => 'Sunny A.',
-		'profession' => 'UI/UX Expert',
-		'role' => 'Lead Author',
-		'twitter' => '@myplaneticket',
-		'wrapbootstrap' => 'myorange',
-		'bootstrapTitle' => 'Sunny'
-	],
-	[
-		'avatar' => 'josh.png',
-		'altText' => 'Jos K.',
-		'name' => 'Jos K.',
-		'profession' => 'ASP.NET Developer',
-		'role' => 'Partner &amp; Contributor',
-		'twitter' => '@atlantez',
-		'wrapbootstrap' => 'Walapa',
-		'bootstrapTitle' => 'Jos'
-	],
-	[
-		'avatar' => 'jovanni.png',
-		'altText' => 'Jovanni Lo',
-		'name' => 'Jovanni L.',
-		'profession' => 'PHP Developer',
-		'role' => 'Partner &amp; Contributor',
-		'twitter' => '@lodev09',
-		'wrapbootstrap' => 'lodev09',
-		'bootstrapTitle' => 'Jovanni'
-	],
-	[
-		'avatar' => 'roberto.png',
-		'altText' => 'Roberto R.',
-		'name' => 'Roberto R.',
-		'profession' => 'Rails Developer',
-		'role' => 'Partner &amp; Contributor',
-		'twitter' => '@sildur',
-		'wrapbootstrap' => 'sildur',
-		'bootstrapTitle' => 'Roberto'
-	]
-];
+if (session_status() != 2) session_start();
+if (isset($_SESSION['user'])) $user = $_SESSION['user'];
+// делаю такие проверки потому, что дебагер ругается. 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,24 +39,22 @@ $userList = [
 				</div>
 				<div class="panel-container show">
 					<div class="panel-content">
-						<div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
-
-							<? foreach ($userList as $user) : ?>
-
-								<div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-									<img src="img/demo/authors/<?= $user['avatar'] ?>" alt="<?= $user['altText'] ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-									<div class="ml-2 mr-3">
-										<h5 class="m-0">
-											<?= $user['name'] ?> (<?= $user['profession'] ?>)
-											<small class="m-0 fw-300">
-												<?= $user['role'] ?>
-											</small>
-										</h5>
-										<a href="https://twitter.com/<?= $user['twitter'] ?>" class="text-info fs-sm" target="_blank"><?= $user['twitter'] ?></a> -
-										<a href="https://wrapbootstrap.com/user/<?= $user['wrapbootstrap'] ?>" class="text-info fs-sm" target="_blank" title="Contact <?= $user['bootstrapTitle'] ?>"><i class="fal fa-envelope"></i></a>
+						<div class="panel-content">
+							<div class="form-group">
+								<? if (isset($user)) : ?>
+									<div class="alert alert-success fade show" role="alert">
+										Здравствуйте, <?= $user['email'] ?>.
+										<!-- Логина или имени в таблице нет, поэтому решил вывести емэйл -->
 									</div>
-								</div>
-							<? endforeach ?>
+									<a href="/task_14_1_handler.php" class="btn btn-info">Выйти</a>
+								<? else : ?>
+									<div class="alert alert-success fade show" role="alert">
+										Войдите или зарегистрируйтесь!
+									</div>
+									<a href="/task_14.php" class="btn btn-info">Войти</a>
+									<a href="/task_11.php" class="btn btn-success">Зарегистрироваться</a>
+								<? endif ?>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -1,8 +1,7 @@
 <?php
 
 $progressBars = [
-
-	0 => [
+	[
 		'title' => 'My Tasks',
 		'title div class' => 'd-flex mt-2',
 		'span' => '130 / 500',
@@ -11,8 +10,7 @@ $progressBars = [
 		'style' => '65',
 		'aria-valuenow' => '65',
 	],
-
-	1 => [
+	[
 		'title' => 'Transferred',
 		'title div class' => 'd-flex',
 		'span' => '440 TB',
@@ -21,8 +19,7 @@ $progressBars = [
 		'style' => '34',
 		'aria-valuenow' => '34',
 	],
-
-	2 => [
+	[
 		'title' => 'Bugs Squashed',
 		'title div class' => 'd-flex',
 		'span' => '77%',
@@ -31,8 +28,7 @@ $progressBars = [
 		'style' => '77',
 		'aria-valuenow' => '77',
 	],
-
-	3 => [
+	[
 		'title' => 'User Testing',
 		'title div class' => 'd-flex',
 		'span' => '7 days',
@@ -41,7 +37,6 @@ $progressBars = [
 		'style' => '84',
 		'aria-valuenow' => '84',
 	],
-
 ];
 ?>
 
